@@ -1,19 +1,19 @@
 <pre>
-                                  :                      :
-                                  ::                    ::
-                                  ::`.     .-""-.     .'::
-                                  : `.`-._ : '>': _.-'.' :
-                                  :`. `=._`'.  .''_.=' .':
-                                   : `=._ `- '' -' _.-'.:
-                                    :`=._`=.    .='_.=':
-                                     `.._`.      .'_..'                
-                                       `-.:      :.-'
-                                          :      :
-                                          `:.__.:'
-                                           :    :
-                                          -'=  -'=                                           
-                
-                                      Simplon/Twitter
+							  :                      :
+							  ::                    ::
+							  ::`.     .-""-.     .'::
+							  : `.`-._ : '>': _.-'.' :
+							  :`. `=._`'.  .''_.=' .':
+							   : `=._ `- '' -' _.-'.:
+								:`=._`=.    .='_.=':
+								 `.._`.      .'_..'                
+								   `-.:      :.-'
+									  :      :
+									  `:.__.:'
+									   :    :
+									  -'=  -'=                                           
+			
+								  Simplon/Twitter
 </pre>
 
 -------------------------------------------------
@@ -65,7 +65,7 @@ The following lines will describe how to generate a pair of ```access tokens``` 
 Just follow-up with the code below. You should receive a class (```OauthRequestTokenVo```) which holds among other things an ```OauthToken```. Call ```Twitter::getAuthenticationUrl()``` by passing in the mentioned token. As a result you will receive a ```URL``` - redirect the user to this url. The user will end up at twitter's authentication page and will grant you permission to access his/her profile.
 
 ```php
-require __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/vendor/autoload.php';
 
 // your app's consumer tokens
 $apiKey = 'E3yaXX2LvOFXXXXikwMUyvlQD';
@@ -100,7 +100,7 @@ You will need both parameters to receive the ```user's profile data``` and ```ac
 __YOU NEED BOTH ACCESS TOKENS: Make sure to save all data away for later use. For instance into a database.__
 
 ```php
-require __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/vendor/autoload.php';
 
 // your app's consumer tokens
 $apiKey = 'E3yaXX2LvOFXXXXikwMUyvlQD';
@@ -152,7 +152,7 @@ The following examples will show you how to publish, read and to destroy a tweet
 ### 1. Publish a tweet
 
 ```php
-require __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/vendor/autoload.php';
 
 // your app's consumer tokens
 $apiKey = 'E3yaXX2LvOFXXXXikwMUyvlQD';
@@ -187,7 +187,7 @@ catch (\Simplon\Twitter\TwitterException $e)
 You will need a ```tweet ID``` in order to load its data.
 
 ```php
-require __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/vendor/autoload.php';
 
 // your app's consumer tokens
 $apiKey = 'E3yaXX2LvOFXXXXikwMUyvlQD';
@@ -222,7 +222,7 @@ catch (\Simplon\Twitter\TwitterException $e)
 You will need a ```tweet ID``` in order to destroy it.
 
 ```php
-require __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/vendor/autoload.php';
 
 // your app's consumer tokens
 $apiKey = 'E3yaXX2LvOFXXXXikwMUyvlQD';
