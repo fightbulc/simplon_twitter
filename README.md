@@ -255,7 +255,7 @@ catch (\Simplon\Twitter\TwitterException $e)
 -------------------------------------------------
 
 # License
-Cirrus is freely distributable under the terms of the MIT license.
+simplon/twitter is freely distributable under the terms of the MIT license.
 
 Copyright (c) 2015 Tino Ehrich ([tino@bigpun.me](mailto:tino@bigpun.me))
 
