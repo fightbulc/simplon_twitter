@@ -1,12 +1,13 @@
 {
   "name": "simplon/twitter",
-  "description": "Twitter Library",
+  "description": "Twitter API Library w/ OAuth",
   "homepage": "https://github.com/fightbulc/simplon_twitter",
   "type": "library",
   "keywords": [
     "twitter",
     "api",
-    "http"
+    "http",
+    "oauth"
   ],
   "license": "MIT",
   "authors": [
