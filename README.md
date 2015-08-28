@@ -149,6 +149,8 @@ That's all there is. Go ahead and try to interact with twitter's api.
 
 The following examples will show you how to publish, read and to destroy a tweet. [Visit twitter's dev center](https://dev.twitter.com/rest/public) to see all api resources.
 
+Simplon/Twitter supports now as well ```media uploads```. An example can be found at the end of the other examples.
+
 ### 1. Publish a tweet
 
 ```php
@@ -252,6 +254,44 @@ catch (\Simplon\Twitter\TwitterException $e)
 }
 ```
 
+### 4. Uploand and tweet an image
+
+```php
+require __DIR__ . '/vendor/autoload.php';
+
+// your app's consumer tokens
+$apiKey = 'E3yaXX2LvOFXXXXikwMUyvlQD';
+$apiSecret = 'WkhXXZPbyFdLiHqDCkSEqJodxm5XdIPLuFNzs1sXXdv09ZXXX7';
+
+// user's prior retrieved access tokens
+$accessToken = '3197060333-xxxx4chX0Sega3iMF0r55PP96BAGyXXXFTwjpgW';
+$accessSecret = 'FeIpfZ1qK4jTaKXXXXTaQAlfny0dFgBV4K15vbnFd3XX';
+
+// twitter session with your credentials
+$twitter = new \Simplon\Twitter\Twitter($apiKey, $apiSecret);
+
+try
+{
+	// bind user account to twitter session
+	$twitter->setOauthTokens($accessToken, $accessSecret);
+	
+	// upload image
+	$response = $twitter->upload('http://example-image.png'); 
+
+	// should hold all media specific data in an array
+	var_dump($response); // $response['media_id'] holds the media ID
+	
+	// publish tweet w/ media
+	$response = $twitter->post('statuses/update', ['status' => 'Crazy summer vacation!', 'media_ids' => $response['media_id']);
+	
+	// should hold all tweet specific data in an array
+	var_dump($response); // $response['id'] holds the tweet ID
+}
+catch (\Simplon\Twitter\TwitterException $e)
+{
+    var_dump($e->getMessage());
+}
+```
 -------------------------------------------------
 
 # License
