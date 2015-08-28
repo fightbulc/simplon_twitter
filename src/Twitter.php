@@ -12,11 +12,13 @@ use Simplon\Request\RequestResponse;
 class Twitter
 {
     const URL_API = 'https://api.twitter.com';
+    const URL_UPLOAD = 'https://upload.twitter.com';
     const API_VERSION = '1.1';
     const OAUTH_VERSION = '1.0';
     const PATH_OAUTH_REQUEST_TOKEN = '/oauth/request_token';
     const PATH_OAUTH_AUTHENTICATE = '/oauth/authenticate';
     const PATH_OAUTH_ACCESS_TOKEN = '/oauth/access_token';
+    const PATH_MEDIA = '/media/upload';
 
     /**
      * @var string
@@ -152,7 +154,7 @@ class Twitter
      */
     public function get($path, array $params = [])
     {
-        $baseUrl = $this->buildJsonUrl(
+        $baseUrl = $this->buildJsonExtensionUrl(
             [
                 self::URL_API,
                 self::API_VERSION,
@@ -180,13 +182,44 @@ class Twitter
      */
     public function post($path, array $params = [])
     {
-        $baseUrl = $this->buildJsonUrl(
+        $baseUrl = $this->buildJsonExtensionUrl(
             [
                 self::URL_API,
                 self::API_VERSION,
                 $path,
             ]
         );
+
+        // create signature
+        $signature = $this->getTwitterSignature()->renderForApiPost($baseUrl, $params);
+
+        // send request to twitter
+        $response = $this->sendPostRequest($baseUrl, $signature, $params);
+
+        return $this->formatResponse($response);
+    }
+
+    /**
+     * @param string $urlImage
+     *
+     * @return array
+     * @throws TwitterException
+     */
+    public function upload($urlImage)
+    {
+        $baseUrl = $this->buildJsonExtensionUrl(
+            [
+                self::URL_UPLOAD,
+                self::API_VERSION,
+                self::PATH_MEDIA,
+            ]
+        );
+
+        // fetch image contents
+        $rawFile = file_get_contents($urlImage);
+
+        // encode image to bas64
+        $params = ['media_data' => base64_encode($rawFile)];
 
         // create signature
         $signature = $this->getTwitterSignature()->renderForApiPost($baseUrl, $params);
@@ -279,7 +312,7 @@ class Twitter
      *
      * @return string
      */
-    private function buildJsonUrl(array $parts)
+    private function buildJsonExtensionUrl(array $parts)
     {
         return trim($this->buildUrl($parts), '/') . '.json';
     }
