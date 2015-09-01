@@ -271,7 +271,7 @@ class Twitter
     private function formatResponse(RequestResponse $response)
     {
         $data = [];
-        $rawContent = $response->getContent();
+        $rawContent = $response->getBody();
 
         if ($response->getHttpCode() !== 200)
         {
@@ -279,7 +279,6 @@ class Twitter
         }
 
         // handle json response
-
         if (strpos($rawContent, '{') === 0)
         {
             return json_decode($rawContent, true);
