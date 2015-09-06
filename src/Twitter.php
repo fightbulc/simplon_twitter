@@ -325,7 +325,6 @@ class Twitter
     {
         return [
             CURLOPT_HTTPHEADER => [$signature],
-            CURLOPT_HEADER     => false,
         ];
     }
 }
