@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3559e3b6a61a4616c354deb3fe0de741",
+    "hash": "e11372fc4abca0b69ef261926c7a3056",
     "packages": [
         {
             "name": "danielstjules/stringy",
@@ -108,16 +108,16 @@
         },
         {
             "name": "simplon/request",
-            "version": "0.3.5",
+            "version": "0.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fightbulc/simplon_request.git",
-                "reference": "965ac48598279928abfbcbca4be6c9180f95776a"
+                "reference": "9cc18ef5ae88b7c17cb6195028968d65720a8b99"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fightbulc/simplon_request/zipball/965ac48598279928abfbcbca4be6c9180f95776a",
-                "reference": "965ac48598279928abfbcbca4be6c9180f95776a",
+                "url": "https://api.github.com/repos/fightbulc/simplon_request/zipball/9cc18ef5ae88b7c17cb6195028968d65720a8b99",
+                "reference": "9cc18ef5ae88b7c17cb6195028968d65720a8b99",
                 "shasum": ""
             },
             "require": {
@@ -150,7 +150,7 @@
                 "post",
                 "request"
             ],
-            "time": "2015-09-01 07:21:09"
+            "time": "2015-09-09 14:10:49"
         }
     ],
     "packages-dev": [],
