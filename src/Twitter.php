@@ -76,7 +76,7 @@ class Twitter
         $baseUrl = $this->buildUrl(
             [
                 self::URL_API,
-                self::PATH_OAUTH_REQUEST_TOKEN
+                self::PATH_OAUTH_REQUEST_TOKEN,
             ]
         );
 
@@ -111,7 +111,7 @@ class Twitter
             [
                 self::URL_API,
                 self::PATH_OAUTH_AUTHENTICATE,
-                '?oauth_token=' . $oauthToken . '&force_login=' . ($forceLogin ? 1 : 0)
+                '?oauth_token=' . $oauthToken . '&force_login=' . ($forceLogin ? 1 : 0),
             ]
         );
     }
@@ -128,7 +128,7 @@ class Twitter
         $baseUrl = $this->buildUrl(
             [
                 self::URL_API,
-                self::PATH_OAUTH_ACCESS_TOKEN
+                self::PATH_OAUTH_ACCESS_TOKEN,
             ]
         );
 
@@ -279,7 +279,7 @@ class Twitter
         }
 
         // handle json response
-        if (strpos($rawContent, '{') === 0)
+        if (stripos($response->getHeader()->getContentType(), 'application/json') !== false)
         {
             return json_decode($rawContent, true);
         }
